@@ -94,10 +94,9 @@ for idx, layer in enumerate(model.named_modules()):
 #--------------------------------
 # Get intermediate output states
 #--------------------------------
-test_set_len = len(test_set)
-test_loader = torch.utils.data.DataLoader(dataset=[test_set[0],test_set[1]],
-                                        batch_size=1,
-                                          shuffle=False)
+test_set_len = 101 #len(test_set)
+test_loader = torch.utils.data.DataLoader(dataset=[test_set[i] for i in range(test_set_len)],
+                                    batch_size=1, shuffle=False)
 
 
 # block_states will end up size [len(test_loader),num_hooks,2]
